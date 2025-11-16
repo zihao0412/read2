@@ -42,3 +42,7 @@ kotlin {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+springBoot {
+	mainClass.set("me.zihao.read2.Read2ApplicationKt")
+}

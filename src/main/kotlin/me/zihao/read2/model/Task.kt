@@ -1,5 +1,9 @@
 package me.zihao.read2.model
 
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
+import java.time.Instant
+
 @Document(collection = "Task")
 data class Task(
     @Id val id: String?,

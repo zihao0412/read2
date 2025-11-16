@@ -1,6 +1,6 @@
-package com.zihao.demo.repository
+package me.zihao.read2.repository
 
-import com.zihao.demo.model.Task
+import me.zihao.read2.model.Task
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface TaskRepository : MongoRepository<Task, String>

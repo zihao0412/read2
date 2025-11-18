@@ -54,5 +54,5 @@ fun TaskRequestDTO.toEntity(id: String? = null): Task =
         pictureUrl = this.pictureUrl,
         titles = this.titles,
         artists = this.artists,
-        status = this.status ?: TaskStatus.PS1_MARKED
+        status = this.status ?: TaskStatus.S1_MARKED
     )

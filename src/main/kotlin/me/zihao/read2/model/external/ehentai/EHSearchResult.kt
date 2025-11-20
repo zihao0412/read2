@@ -6,14 +6,14 @@ data class EHSearchPage(
 )
 
 data class EHSearchedGallery(
-    val id: EHGalleryId,
+    val id: EHKey,
     val catagory: EHCategory,
-    val publishedTS: String,
+    val postedTS: String,
     val title: String,
-    var coverPictureUrl: String,
-    var tags: List<String>,
-    var uploadedBy: String,
-    var pageCount: Int
+    val coverPictureUrl: String,
+    val tags: List<String>,
+    val uploadedBy: String,
+    val pageCount: Int
 )
 
 data class EHSearchResult(
@@ -22,6 +22,6 @@ data class EHSearchResult(
     val hasLastPage: Boolean,
     val hasPrevPage: Boolean,
     val hasNextPage: Boolean,
-    val listedPages: List<EHSearchPage>
+    val listedPages: List<EHSearchPage>,
     val galleries: List<EHSearchedGallery>
 )

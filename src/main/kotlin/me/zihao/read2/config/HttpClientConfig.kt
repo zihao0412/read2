@@ -2,10 +2,11 @@ package me.zihao.read2.config
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
-import io.ktor.client.features.cookies.HttpCookies
-import io.ktor.client.features.defaultRequest.DefaultRequest
-import io.ktor.client.features.logging.LogLevel
-import io.ktor.client.features.logging.Logging
+import io.ktor.client.plugins.DefaultRequest
+import io.ktor.client.plugins.cookies.HttpCookies
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

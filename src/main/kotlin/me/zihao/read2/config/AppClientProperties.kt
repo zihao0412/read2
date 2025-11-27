@@ -6,5 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 data class AppClientProperties(
     var followRedirects: Boolean = true,
     var timeoutMs: Long = 5000,
-    var userAgent: String = "MyKtorClient/1.0"
+    var userAgent: String = "MyKtorClient/1.0",
+    var acceptLanguage: String = "en-US,en;q=0.9",
+    var maxConnections: Int = 100
 )
+

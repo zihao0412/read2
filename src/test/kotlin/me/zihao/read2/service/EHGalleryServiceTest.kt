@@ -13,13 +13,16 @@ import io.ktor.http.headersOf
 import kotlinx.coroutines.test.runTest
 import java.io.File
 
+import me.zihao.read2.config.EHProperties
+
 class EHGalleryServiceTest {
 
     @Test
     fun testDefaultSearchResult() = runTest {
         val htmlContent = loadTestHtml("default_search.html")
         val mockClient = createMockHttpClient(htmlContent)
-        val service = EHGalleryService(mockClient)
+        val ehProp = EHProperties()
+        val service = EHGalleryService(mockClient, ehProp)
 
         val result = service.fetchSearchResults(emptyMap())
 

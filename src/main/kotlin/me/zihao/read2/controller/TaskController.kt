@@ -1,5 +1,6 @@
 package me.zihao.read2.controller
 
+import me.zihao.read2.dto.PageResponse
 import me.zihao.read2.dto.TaskRequestDTO
 import me.zihao.read2.dto.TaskResponseDTO
 import me.zihao.read2.service.TaskService
@@ -21,7 +22,7 @@ class TaskController(
     }
 
     @GetMapping
-    fun listPage(pageable: Pageable): ResponseEntity<Page<TaskResponseDTO>> {
+    fun listPage(pageable: Pageable): ResponseEntity<PageResponse<TaskResponseDTO>> {
         val response = taskService.listPage(pageable)
         return ResponseEntity.ok(response)
     }

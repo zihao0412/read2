@@ -5,3 +5,5 @@ spring:
     mongodb:
       uri: ${MONGODB_URI}
       database: ehentai
+cors:
+  allowed-origins: http://localhost:5173

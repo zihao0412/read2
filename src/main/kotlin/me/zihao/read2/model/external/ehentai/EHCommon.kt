@@ -18,8 +18,21 @@ enum class EHCategory(
 
 data class EHKey(
     val path: String,
-    val key: String
-)
+    val key: String) {
+    override fun toString(): String = "/$path/$key"
+}
+
+data class EHGalleryKey(
+    val gid: EHKey,
+    val page: Int){
+    override fun toString(): String {
+        if (page > 1) {
+            return "${gid}/?p=${page - 1}"
+        } else {
+            return gid.toString()
+        }
+    }
+    }
 
 data class EHTag(
     val namespace: String,

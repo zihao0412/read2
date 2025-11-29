@@ -1,5 +1,6 @@
 package me.zihao.read2.service
 
+import me.zihao.read2.dto.PageResponse
 import me.zihao.read2.dto.TaskRequestDTO
 import me.zihao.read2.dto.TaskResponseDTO
 import me.zihao.read2.dto.toEntity
@@ -21,7 +22,7 @@ class TaskService(
         return savedTask.toResponseDTO()
     }
 
-    fun listPage(pageable: Pageable): Page<TaskResponseDTO> {
+    fun listPage(pageable: Pageable): PageResponse<TaskResponseDTO> {
         val sortOrder = Sort.by(
             Sort.Order.asc("status"),
             Sort.Order.desc("lastModifiedTS")
@@ -31,6 +32,14 @@ class TaskService(
             pageable.pageSize,
             sortOrder
         )
-        return taskRepository.findAll(pageableWithSort).map { it.toResponseDTO() }
+        val page = taskRepository.findAll(pageableWithSort).map { it.toResponseDTO() }
+        return PageResponse(
+            content = page.content,
+            pageNumber = page.number,
+            pageSize = page.size,
+            totalElements = page.totalElements,
+            totalPages = page.totalPages,
+            sort = sortOrder
+        )
     }
 }

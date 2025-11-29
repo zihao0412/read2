@@ -11,5 +11,9 @@ data class EHSlide (
     val url: String,
     val size: EHImageSize,
     val imageInfo: String,
-    val originalImageInfo: String
+    val originalImageInfo: String,
+    val firstPageLink: String,
+    val lastPageLink: String,
+    val nextPageLink: String,
+    val prevPageLink: String
 )

@@ -5,9 +5,8 @@ import me.zihao.read2.dto.TaskRequestDTO
 import me.zihao.read2.dto.TaskResponseDTO
 import me.zihao.read2.dto.toEntity
 import me.zihao.read2.dto.toResponseDTO
-import me.zihao.read2.model.Task
 import me.zihao.read2.repository.TaskRepository
-import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
@@ -27,7 +26,7 @@ class TaskService(
             Sort.Order.asc("status"),
             Sort.Order.desc("lastModifiedTS")
         )
-        val pageableWithSort = org.springframework.data.domain.PageRequest.of(
+        val pageableWithSort = PageRequest.of(
             pageable.pageNumber,
             pageable.pageSize,
             sortOrder
